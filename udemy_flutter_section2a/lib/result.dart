@@ -74,7 +74,63 @@ class Result extends StatelessWidget {
         Spacer(
           flex: 1,
         ),
+        TextButton(
+          onPressed: _proceedAgain,
+          child: Text(
+            "Click to proceed again",
+            style: TextStyle(
+              fontWeight: FontWeight.normal,
+              color: Colors.white,
+            ),
+          ),
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.teal[900],
+            padding: EdgeInsets.all(8),
+            //few more styles
+          ),
+        ),
         ElevatedButton(
+          onPressed: () {},
+          child: Text("ElevatedButton A"),
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.amber[900]),
+              foregroundColor: MaterialStateProperty.all(Colors.yellow[100])),
+          // foregroundColor: MaterialStateProperty.all(Colors.black)),
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: Text("ElevatedButton B"),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.pink[600], onPrimary: Colors.green[300]),
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            "TextButton",
+          ),
+          style: TextButton.styleFrom(
+            primary: Colors.teal[800],
+          ),
+        ),
+        OutlinedButton(
+          onPressed: () {},
+          child: Text("OutlinedButton"),
+          style: OutlinedButton.styleFrom(
+              backgroundColor: Colors.teal[200],
+              foregroundColor: Colors.red[600],
+              side: BorderSide(color: Colors.black)),
+        )
+      ],
+    );
+  }
+}
+
+
+
+/*
+
+
+ElevatedButton(
           onPressed: _proceedAgain,
           child: Text(
             "Click to proceed again.",
@@ -88,7 +144,22 @@ class Result extends StatelessWidget {
             backgroundColor: Colors.blue,
           ),
         )
-      ],
-    );
-  }
-}
+
+
+
+TextButton(
+          onPressed: _proceedAgain,
+          child: Text(
+            "Click to proceed again.",
+            style: TextStyle(
+              fontWeight: FontWeight.normal,
+              color: Colors.white,
+            ),
+          ),
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.teal[900],
+            padding: EdgeInsets.all(8),
+            //few more styles
+          ),
+        )
+ */
