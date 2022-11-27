@@ -7,7 +7,9 @@ class Answer extends StatelessWidget {
   final VoidCallback selectHandler;
   //VoidCallback tells Flutter that will get a function here that does not accept any arguments, so that receives no input and also won't return anything.
 
-  Answer(this.selectHandler);
+  String buttonText;
+
+  Answer(this.buttonText, this.selectHandler);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class Answer extends StatelessWidget {
       child: ElevatedButton(
         onPressed: selectHandler,
         child: Text(
-          'Answer 1',
+          buttonText,
           style: TextStyle(
             fontWeight: FontWeight.normal,
             color: Colors.white,
