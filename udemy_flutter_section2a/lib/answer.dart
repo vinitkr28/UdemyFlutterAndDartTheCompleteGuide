@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  final VoidCallback selectHandler;
+  final VoidCallback _selectHandler;
 
-  String buttonText;
+  String _buttonText;
 
-  Answer(this.buttonText, this.selectHandler);
+  Answer(this._buttonText, this._selectHandler);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,9 @@ class Answer extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.all(10),
       child: ElevatedButton(
-        onPressed: selectHandler,
+        onPressed: _selectHandler,
         child: Text(
-          buttonText,
+          _buttonText,
           style: TextStyle(
             fontWeight: FontWeight.normal,
             color: Colors.white,

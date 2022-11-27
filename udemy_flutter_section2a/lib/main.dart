@@ -13,27 +13,57 @@ class _MyAppState extends State<MyApp> {
   final questions = const [
     {
       'questionText': 'What\'s your favourite color?',
-      'answer': ['Black', 'Red', 'Blue', 'Green']
+      'answer': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Blue', 'score': 3},
+        {'text': 'Green', 'score': 0}
+      ]
     },
     {
       'questionText': 'What\'s your favourite animal?',
-      'answer': ['Dog', 'Goat', 'Cow', 'Cat'],
+      'answer': [
+        {'text': 'Dog', 'score': 30},
+        {'text': 'Goat', 'score': 18},
+        {'text': 'Cow', 'score': 40},
+        {'text': 'Cat', 'score': 1}
+      ],
     },
     {
       'questionText': 'What\'s your favourite bird?',
-      'answer': ['Parot', 'Pegion', 'Sparow', 'Sturnidae'],
+      'answer': [
+        {'text': 'Parot', 'score': 2},
+        {'text': 'Pegion', 'score': 14},
+        {'text': 'Sparow', 'score': 19},
+        {'text': 'Sturnidae', 'score': 21}
+      ],
     },
     {
       'questionText': 'What\'s your favourite seasion?',
-      'answer': ['Winter', 'Summer', 'Autumn', 'Spring'],
+      'answer': [
+        {'text': 'Winter', 'score': 11},
+        {'text': 'Summer', 'score': 22},
+        {'text': 'Autumn', 'score': 28},
+        {'text': 'Spring', 'score': 33}
+      ],
     },
     {
       'questionText': 'What\'s your favourite OTT platform?',
-      'answer': ['Amazon Prime', 'Netflex', 'Hotstar', 'SonyLiv'],
+      'answer': [
+        {'text': 'Amazon Prime', 'score': 44},
+        {'text': 'Netflex', 'score': 6},
+        {'text': 'Hotstar', 'score': 16},
+        {'text': 'SonyLiv', 'score': 17}
+      ],
     },
     {
       'questionText': 'What\'s your favourite place?',
-      'answer': ['Bangalore', 'Pune', 'Mumbai', 'Chennai'],
+      'answer': [
+        {'text': 'Bangalore', 'score': 27},
+        {'text': 'Pune', 'score': 29},
+        {'text': 'Mumbai', 'score': 39},
+        {'text': 'Chennai', 'score': 37}
+      ],
     }
   ];
 
@@ -46,7 +76,13 @@ class _MyAppState extends State<MyApp> {
 
   var _questionIndex = 0;
 
-  void _answerQuestion() {
+  var _totalScore = 0;
+
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
+    print("Score: $_totalScore");
+
     setState(() {
       _questionIndex++;
     });
@@ -55,11 +91,12 @@ class _MyAppState extends State<MyApp> {
   void _proceedAgainFromStart() {
     setState(() {
       _questionIndex = 0;
+      _totalScore = 0;
     });
   }
 
   Widget checkQuestionsOver() => _questionIndex == questions.length
-      ? Result(_questionIndex, _proceedAgainFromStart)
+      ? Result(_questionIndex, _proceedAgainFromStart, _totalScore)
       : Quiz(_answerQuestion, questions, _questionIndex);
 
   @override

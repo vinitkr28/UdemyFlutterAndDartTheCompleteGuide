@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:udemy_flutter_section2a/answer.dart';
+import './answer.dart';
 import './question.dart';
 
 class Quiz extends StatelessWidget {
-  final VoidCallback _selectHandler;
+  final Function _selectHandler;
   final _questions;
   final _questionIndex;
   // final List<Map<String, Object>> _ques;
@@ -17,9 +17,12 @@ class Quiz extends StatelessWidget {
         Question(
           _questions[_questionIndex]['questionText'] as String,
         ),
-        ...(_questions[_questionIndex]['answer'] as List<String>).map((answer) {
-          return Answer(answer, _selectHandler);
-        }).toList()
+        ...(_questions[_questionIndex]['answer'] as List<Map<String, Object>>)
+            .map(
+              (answerMap) => Answer(answerMap['text'] as String,
+                  () => _selectHandler(answerMap['score'])),
+            )
+            .toList()
       ],
     );
   }
