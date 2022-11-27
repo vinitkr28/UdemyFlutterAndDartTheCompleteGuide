@@ -2,10 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  // final Function selectHandler;
-
   final VoidCallback selectHandler;
-  //VoidCallback tells Flutter that will get a function here that does not accept any arguments, so that receives no input and also won't return anything.
 
   String buttonText;
 
