@@ -29,4 +29,50 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
+  Widget sample1() {
+    return Column(children: <Widget>[
+      Card(
+        child: Container(
+          width: double.infinity,
+          child: Text(
+            "Card!",
+            style: TextStyle(backgroundColor: Colors.greenAccent),
+          ),
+        ),
+      ),
+      Card(
+        child: Text("Card"),
+        elevation: 5,
+      ),
+      Card(
+        child: Text('List of Text'),
+      )
+    ]);
+  }
+
+  Widget sample2() {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              child: Text(
+                "Card!",
+                style: TextStyle(backgroundColor: Colors.greenAccent),
+              ),
+            ),
+          ),
+          Card(
+            color: Colors.pinkAccent[100],
+            child: Text("Card"),
+            elevation: 5,
+          ),
+          Card(
+            child: Text('List of Text'),
+          )
+        ]);
+  }
+
 }
