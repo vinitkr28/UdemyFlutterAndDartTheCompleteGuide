@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udemy_flutter_section2a/result.dart';
 import './quiz.dart';
@@ -99,17 +100,26 @@ class _MyAppState extends State<MyApp> {
       ? Result(_questionIndex, _proceedAgainFromStart, _totalScore)
       : Quiz(_answerQuestion, questions, _questionIndex);
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('My First App'),
+  Widget withMaterialApp() => MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text('My First App'),
+          ),
+          body: Center(
+            child: checkQuestionsOver(),
+          ),
         ),
-        body: Center(
-          child: checkQuestionsOver(),
-        ),
+      );
+
+  Widget withScaffold() {
+    return Scaffold(
+      body: CupertinoPageScaffold(
+        child: checkQuestionsOver(),
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) => withMaterialApp();
+  // Widget build(BuildContext context) => withScaffold();
 }
